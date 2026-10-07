@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classes | DoBu Martial Arts</title>
+  <meta name="description" content="Explore martial arts and fitness classes at DoBu Martial Arts." />
+
+  <!-- Critical Network Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+  <!-- Preload Core Bootstrap (Render critical path) -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Asynchronous Non-Blocking Fonts & Icon Loading for Mobile Speed -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" />
+
+  <style>
+    /* CSS Optimization & Mobile Paint Reduction */
+    *, ::before, ::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #f8f9fc;
+      color: #1f2937;
+      text-rendering: optimizeSpeed;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Fixed Navbar Optimized for Mobile GPU rendering */
+    .navbar-enhanced {
+      background: rgba(20, 25, 35, 0.92) !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.5rem 0;
+      will-change: transform;
+    }
+
+    .navbar-enhanced .navbar-brand {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #fff;
+    }
+
+    .navbar-enhanced .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.85) !important;
+      font-weight: 500;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.95rem;
+    }
+
+    .navbar-enhanced .navbar-nav .nav-link.active {
+      color: #facc15 !important;
+      font-weight: 600;
+    }
+
+    .btn-login-enhanced {
+      background: #facc15;
+      border: none;
+      color: #0b0f1a !important;
+      font-weight: 700;
+      padding: 0.45rem 1.4rem;
+      border-radius: 40px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    /* Hero Section */
+    .hero-classes {
+      background: linear-gradient(145deg, #0b111e 0%, #1b2538 100%);
+      padding: 4rem 1rem 3rem;
+      border-radius: 0 0 30px 30px;
+      color: white;
+      text-align: center;
+      contain: content;
+    }
+
+    .hero-classes h1 {
+      font-weight: 700;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+    }
+
+    .hero-classes h1 span {
+      color: #facc15;
+    }
+
+    .hero-classes p {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0.75rem auto;
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 4px;
+      background: #facc15;
+      border-radius: 4px;
+    }
+
+    /* Mobile performance card layout */
+    .card-class {
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      contain: content;
+    }
+
+    .card-class img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+      background-color: #e5e7eb;
+    }
+
+    .section-img {
+      border-radius: 20px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      background-color: #e5e7eb;
+    }
+
+    .btn-gold {
+      background: #facc15;
+      color: #0b0f1a;
+      font-weight: 600;
+      padding: 0.6rem 2rem;
+      border-radius: 40px;
+      border: none;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .bg-soft-dark {
+      background: #111827;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-enhanced">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="home.html">DoBu Martial Arts</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="home.html"><i class="bi bi-house-door-fill me-1"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-info-circle me-1"></i>About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="classes.html" aria-current="page"><i class="bi bi-grid-3x3-gap-fill me-1"></i>Classes</a></li>
+          <li class="nav-item"><a class="nav-link" href="timetable.html"><i class="bi bi-calendar3 me-1"></i>Timetable</a></li>
+          <li class="nav-item"><a class="nav-link" href="membership.html"><i class="bi bi-person-badge me-1"></i>Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="instructor.html"><i class="bi bi-people-fill me-1"></i>Instructors</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html"><i class="bi bi-images me-1"></i>Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope-fill me-1"></i>Contact</a></li>
+          <li class="nav-item">
+            <a class="btn btn-danger btn-login-enhanced mt-2 mt-lg-0" href="login.html">
+              <i class="bi bi-box-arrow-in-right me-1"></i> Login
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content with Mobile Height Offset -->
+  <main style="padding-top: 56px;">
+
+    <section class="hero-classes">
+      <div class="container">
+        <h1>Our <span>Classes</span></h1>
+        <p>Train with experienced instructors and improve your strength, confidence and self‑defence skills.</p>
+        <div class="mt-3">
+          <span class="badge" style="background:#facc15; color:#0b0f1a; padding:0.4rem 1.2rem; border-radius:30px; font-weight:600;">🔥 7 days free trial</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-4">
+      <h2 class="text-center fw-bold mb-4"><span class="section-title">Martial Arts Programs</span></h2>
+      <div class="row g-3">
+
+        <div class="col-6 col-lg-3">
+          <article class="card card-class h-100 shadow-sm">
+            <img src="martialimage/photo_2026-08-03_13-12-28.jpg" class="card-img-top" alt="Karate" width="300" height="180" loading="eager" fetchpriority="high">
+            <div class="card-body p-3">
+              <h3 class="h5 fw-bold">Karate</h3>
+              <p class="card-text text-muted small">Develop discipline, confidence and striking skills.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <article class="card card-class h-100 shadow-sm">
+            <img src="martialimage/photo_2026-08-03_13-11-35.jpg" class="card-img-top" alt="Judo" width="300" height="180" loading="lazy" decoding="async">
+            <div class="card-body p-3">
+              <h3 class="h5 fw-bold">Judo</h3>
+              <p class="card-text text-muted small">Improve throwing techniques and balance.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <article class="card card-class h-100 shadow-sm">
+            <img src="martialimage/photo_2026-08-03_13-11-36.jpg" class="card-img-top" alt="Jiu-Jitsu" width="300" height="180" loading="lazy" decoding="async">
+            <div class="card-body p-3">
+              <h3 class="h5 fw-bold">Jiu-Jitsu</h3>
+              <p class="card-text text-muted small">Learn grappling and ground fighting skills.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <article class="card card-class h-100 shadow-sm">
+            <img src="martialimage/photo_2026-08-25_14-32-24.jpg" class="card-img-top" alt="Muay Thai" width="300" height="180" loading="lazy" decoding="async">
+            <div class="card-body p-3">
+              <h3 class="h5 fw-bold">Muay Thai</h3>
+              <p class="card-text text-muted small">Master punches, kicks, knees and elbows.</p>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="bg-light py-4">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <img src="martialimage/photo_2026-08-03_13-35-31.jpg" class="img-fluid section-img" alt="Fitness Training" width="600" height="400" loading="lazy" decoding="async">
+          </div>
+          <div class="col-lg-6">
+            <h2 class="fw-bold h3"><i class="bi bi-dumbbell me-1" style="color:#facc15;"></i> Fitness Training</h2>
+            <p class="text-muted">Our fully equipped fitness rooms help students improve strength, endurance, and overall physical performance.</p>
+            <a href="membership.html" class="btn btn-gold">Join Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-4">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6 order-2 order-lg-1">
+          <h2 class="fw-bold h3"><i class="bi bi-shield-check me-1" style="color:#facc15;"></i> Self Defence Course</h2>
+          <p class="text-muted">Our six-week self-defence course teaches practical techniques to improve personal safety and confidence.</p>
+          <a href="membership.html" class="btn btn-gold">Learn More</a>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2">
+          <img src="martialimage/photo_2026-08-03_13-38-45.jpg" class="img-fluid section-img" alt="Self Defence Course" width="600" height="400" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-soft-dark text-white py-4">
+      <div class="container text-center">
+        <h2 class="fw-bold h3"><i class="bi bi-person-lines-fill me-1" style="color:#facc15;"></i> Private Tuition</h2>
+        <p class="small text-white-50" style="max-width:500px; margin:0.5rem auto;">Receive one-to-one coaching from our professional instructors to progress faster.</p>
+        <a href="membership.html" class="btn btn-gold mt-2">Book Now</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-black text-white text-center p-3">
+    <div class="container">
+      <p class="fw-bold mb-1">DoBu Martial Arts</p>
+      <p class="text-white-50 small mb-2">Building Strength, Discipline and Confidence.</p>
+      <p class="text-secondary small mb-0">© 2026 DoBu Martial Arts</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>

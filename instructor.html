@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Instructors | DoBu Martial Arts</title>
+
+    <!-- Bootstrap 5 + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <style>
+        /* ---- reset & base ---- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fc;
+            min-height: 200vh;
+            padding-top: 0;
+        }
+
+        /* ---- HIDE ORIGINAL NAVBAR (we keep it but display:none) ---- */
+        .navbar.bg-dark:not(.navbar-enhanced) {
+            display: none !important;
+        }
+
+        /* ---- ENHANCED FIXED NAVBAR (glass + animated) ---- */
+        .navbar-enhanced {
+            background: rgba(20, 25, 35, 0.82) !important;
+            backdrop-filter: blur(14px) saturate(180%);
+            -webkit-backdrop-filter: blur(14px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+            transition: background 0.25s ease, box-shadow 0.3s ease;
+            padding: 0.5rem 0;
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            width: 100%;
+        }
+
+        .navbar-enhanced:hover {
+            background: rgba(12, 16, 26, 0.94) !important;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+        }
+
+        .navbar-enhanced .navbar-brand {
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+            color: #fff;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+        .navbar-enhanced .navbar-brand:hover {
+            transform: scale(1.02);
+            color: #facc15;
+        }
+        .navbar-enhanced .navbar-brand i {
+            color: #facc15;
+            margin-right: 6px;
+        }
+
+        /* nav links */
+        .navbar-enhanced .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500;
+            padding: 0.5rem 0.9rem;
+            margin: 0 2px;
+            border-radius: 30px;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            letter-spacing: 0.2px;
+            font-size: 0.95rem;
+        }
+        .navbar-enhanced .navbar-nav .nav-link:hover,
+        .navbar-enhanced .navbar-nav .nav-link:focus {
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .navbar-enhanced .navbar-nav .nav-link.active {
+            color: #facc15 !important;
+            background: rgba(250, 204, 21, 0.12);
+            font-weight: 600;
+            border-bottom: 2px solid #facc15;
+            border-radius: 30px 30px 6px 6px;
+        }
+
+        /* underline animation */
+        .navbar-enhanced .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #facc15;
+            transition: all 0.25s ease;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+        .navbar-enhanced .navbar-nav .nav-link:hover::after,
+        .navbar-enhanced .navbar-nav .nav-link.active::after {
+            width: 60%;
+        }
+        .navbar-enhanced .navbar-nav .nav-link.active::after {
+            width: 50%;
+            background: #facc15;
+        }
+        .navbar-enhanced .navbar-nav .nav-link.active {
+            background: transparent;
+        }
+
+        /* login button */
+        .btn-login-enhanced {
+            background: linear-gradient(145deg, #facc15, #eab308);
+            border: none;
+            color: #0b0f1a !important;
+            font-weight: 700;
+            padding: 0.45rem 1.5rem;
+            border-radius: 40px;
+            margin-left: 12px;
+            letter-spacing: 0.3px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(250, 204, 21, 0.35);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+        .btn-login-enhanced:hover {
+            transform: scale(1.05) translateY(-2px);
+            background: linear-gradient(145deg, #ffe066, #facc15);
+            box-shadow: 0 8px 24px rgba(250, 204, 21, 0.55);
+            color: #0b0f1a !important;
+        }
+        .btn-login-enhanced i {
+            margin-right: 6px;
+        }
+
+        /* toggler */
+        .navbar-enhanced .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.25);
+            padding: 0.4rem 0.7rem;
+        }
+        .navbar-enhanced .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* mobile adjustments */
+        @media (max-width: 991.98px) {
+            .navbar-enhanced .navbar-nav .nav-link {
+                padding: 0.6rem 1rem;
+                margin: 3px 0;
+                border-radius: 12px;
+            }
+            .navbar-enhanced .navbar-nav .nav-link.active {
+                border-bottom: none;
+                background: rgba(250, 204, 21, 0.15);
+            }
+            .btn-login-enhanced {
+                margin-left: 0;
+                margin-top: 8px;
+                width: fit-content;
+            }
+        }
+
+        /* ---- offset for fixed navbar ---- */
+        .offset-fixed-nav {
+            margin-top: 82px;
+        }
+
+        /* ---- hero / content polish ---- */
+        .hero-instructors {
+            background: linear-gradient(145deg, #0b111e 0%, #1b2538 100%);
+            padding: 4rem 1.5rem;
+            border-radius: 0 0 40px 40px;
+            color: white;
+            text-align: center;
+            box-shadow: inset 0 -8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .hero-instructors h1 {
+            font-weight: 700;
+            font-size: 3.2rem;
+            letter-spacing: -1px;
+        }
+        .hero-instructors h1 span {
+            color: #facc15;
+        }
+        .hero-instructors p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #facc15;
+            border-radius: 4px;
+        }
+
+        /* Instructor Cards */
+        .card-instructor {
+            border: none;
+            border-radius: 24px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            overflow: hidden;
+        }
+        .card-instructor:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.10);
+        }
+        .card-instructor .card-img-top {
+            height: 260px;
+            object-fit: cover;
+            background: #2a3346;
+        }
+        .card-instructor .card-body {
+            padding: 1.8rem 1.5rem;
+        }
+        .card-instructor .instructor-name {
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+        .card-instructor .instructor-role {
+            color: #dc3545;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .card-instructor .instructor-desc {
+            font-size: 0.9rem;
+            color: #495057;
+            margin: 0.75rem 0;
+        }
+        .card-instructor .btn-profile {
+            background: #dc3545;
+            color: white;
+            font-weight: 600;
+            padding: 0.5rem 2rem;
+            border-radius: 40px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(220, 53, 69, 0.25);
+        }
+        .card-instructor .btn-profile:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 24px rgba(220, 53, 69, 0.40);
+            background: #c82333;
+        }
+
+        .benefit-icon {
+            font-size: 2.8rem;
+            color: #dc3545;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(145deg, #dc3545, #b02a37);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ============================================================ -->
+    <!--  ORIGINAL NAVBAR (hidden via CSS) – your exact code          -->
+    <!-- ============================================================ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="home.html">DoBu Martial Arts</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ms-auto">
+                   <li class="nav-item"><a class="nav-link active" href="home.html"><i class="bi bi-house-door-fill"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-info-circle"></i> About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="classes.html"><i class="bi bi-grid-3x3-gap-fill"></i> Classes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="timetable.html"><i class="bi bi-calendar3"></i> Timetable</a></li>
+                    <li class="nav-item"><a class="nav-link" href="membership.html"><i class="bi bi-person-badge"></i> Membership</a></li>
+                    <li class="nav-item"><a class="nav-link" href="instructor.html"><i class="bi bi-people-fill"></i> Instructors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html"><i class="bi bi-images"></i> Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope-fill"></i> Contact</a></li>
+                    <li class="nav-item"><a class="btn btn-danger ms-2 btn-login-enhanced" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!--  ENHANCED FIXED NAVBAR (your structure + extra class)        -->
+    <!-- ============================================================ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top navbar-enhanced">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="home.html">
+                <!-- <i class="bi bi-shield-fill-check"></i>  -->
+                DoBu Martial Arts
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavEnhanced" aria-controls="navbarNavEnhanced" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavEnhanced">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item" style="margin-left: 5px;">
+                        <a class="nav-link" href="home.html" style="margin-left: 10px;">
+                            <i class="bi bi-house-door-fill" style="margin-right: 4px; font-size: 0.9rem;"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <i class="bi bi-info-circle" style="margin-right: 4px;"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="classes.html">
+                            <i class="bi bi-grid-3x3-gap-fill" style="margin-right: 4px;"></i>Classes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="timetable.html">
+                            <i class="bi bi-calendar3" style="margin-right: 4px;"></i>Timetable
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="membership.html">
+                            <i class="bi bi-person-badge" style="margin-right: 4px;"></i>Membership
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="instructor.html">
+                            <i class="bi bi-people-fill" style="margin-right: 4px;"></i>Instructors
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html"><i class="bi bi-images" style="margin-right: 4px;"></i>Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="bi bi-envelope-fill" style="margin-right: 4px;"></i>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger ms-2 btn-login-enhanced" href="login.html">
+                            <i class="bi bi-box-arrow-in-right"></i> Login
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!--  PAGE CONTENT (offset to avoid being hidden under fixed nav) -->
+    <!-- ============================================================ -->
+    <div class="offset-fixed-nav">
+
+        <!-- Hero -->
+        <section class="hero-instructors">
+            <div class="container">
+                <h1>Meet Our <span>Professional</span> Instructors</h1>
+                <p>Learn from highly qualified and experienced martial arts coaches.</p>
+                <div class="mt-3">
+                    <span class="badge" style="background:#facc15; color:#0b0f1a; padding:0.4rem 1.5rem; border-radius:40px; font-weight:600;">🏆 World-Class Coaches</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instructor Cards -->
+        <section class="container py-5">
+            <h2 class="text-center fw-bold mb-5"><span class="section-title">Our Team</span></h2>
+            <div class="row g-4">
+
+                <!-- Instructor 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-instructor shadow h-100">
+                        <img src="https://i.pinimg.com/736x/af/07/10/af0710a0e6c5a9df0152f91626e44491.jpg" class="card-img-top" alt="Mauricio Gomez">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h3 class="instructor-name">Mauricio Gomez</h3>
+                            <div class="instructor-role">Gym Owner / Head Coach</div>
+                            <p class="instructor-desc">
+                                4th Dan Blackbelt in Judo<br>
+                                3rd Dan Blackbelt in Jiu-Jitsu<br>
+                                1st Dan Blackbelt karate <br>
+                                Accredited Muay Thai Coach
+                            </p>
+                            <button class="btn btn-profile mt-auto" onclick="showInstructor('Mauricio Gomez')">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-instructor shadow h-100">
+                        <img src="https://i.pinimg.com/1200x/dc/b6/43/dcb64311d55161f6df54fc6093172f25.jpg" class="card-img-top" alt="Sarah Nova">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h3 class="instructor-name">Sarah Nova</h3>
+                            <div class="instructor-role">Assistant Martial Arts Coach</div>
+                            <p class="instructor-desc">
+                                5th Dan Karate<br>
+                                
+                            </p>
+                            <button class="btn btn-profile mt-auto" onclick="showInstructor('Sarah Nova')">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-instructor shadow h-100">
+                        <img src="https://i.pinimg.com/736x/85/04/23/850423372494bfc2ee281e1acf825241.jpg" class="card-img-top" alt="Guy Victory">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h3 class="instructor-name">Guy Victory</h3>
+                            <div class="instructor-role">Assistant Martial Arts Coach</div>
+                            <p class="instructor-desc">
+                                2nd Dan Blackbelt jiu-jitsu<br>
+                                1st Dan Blackbelt judo
+
+                            </p>
+                            <button class="btn btn-profile mt-auto" onclick="showInstructor('Guy Victory')">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-instructor shadow h-100">
+                        <img src="https://i.pinimg.com/1200x/86/47/9a/86479a59b57c355e8bc8b85b8739a42b.jpg" class="card-img-top" alt="Morris Davis">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h3 class="instructor-name">Morris Davis</h3>
+                            <div class="instructor-role">Assistant Martial Arts Coach</div>
+                            <p class="instructor-desc">
+                                Accredited Muay Thai coach<br>
+                                3rd Dan Blackbelt karate                                
+                            </p>
+                            <button class="btn btn-profile mt-auto" onclick="showInstructor('Morris Davis')">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-instructor shadow h-100">
+                        <img src="https://i.pinimg.com/736x/36/f2/c6/36f2c6b0dd7eb8e8e6f2bd7bdca20841.jpg" class="card-img-top" alt="Traci Santiago">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h3 class="instructor-name">Traci Santiago</h3>
+                            <div class="instructor-role">Fitness Coach</div>
+                            <p class="instructor-desc">
+                                BSc in Sports Science<br>
+                                Qualified in health and nutrition<br>
+                                Specialises in devising strength and 
+                                conditioning programs for combat athletes
+                            </p>
+                            <button class="btn btn-profile mt-auto" onclick="showInstructor('Traci Santiago')">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-instructor shadow h-100">
+                        <img src="https://i.pinimg.com/1200x/5e/a4/1e/5ea41e270955653bc03de9e72b614f92.jpg" class="card-img-top" alt="Harpreet Kaur">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h3 class="instructor-name">Harpreet Kaur</h3>
+                            <div class="instructor-role">Fitness Coach</div>
+                            <p class="instructor-desc">
+                                BSc in Physiotherapy<br>
+                                MSc in Sports Science
+                                
+                            </p>
+                            <button class="btn btn-profile mt-auto" onclick="showInstructor('Harpreet Kaur')">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Why Train With Us -->
+        <section class="bg-light py-5">
+            <div class="container">
+                <h2 class="text-center fw-bold mb-5"><span class="section-title">Why Train With Our Instructors?</span></h2>
+                <div class="row g-4">
+                    <div class="col-md-4 text-center">
+                        <div class="benefit-icon"><i class="bi bi-award"></i></div>
+                        <h2 class="fw-bold">Certified Coaches</h2>
+                        <p class="text-secondary">All instructors hold internationally recognised qualifications.</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="benefit-icon"><i class="bi bi-person-check"></i></div>
+                        <h2 class="fw-bold">Professional Guidance</h2>
+                        <p class="text-secondary">Friendly coaching for beginners and advanced students.</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="benefit-icon"><i class="bi bi-heart-pulse"></i></div>
+                        <h2 class="fw-bold">Healthy Lifestyle</h2>
+                        <p class="text-secondary">Improve confidence, fitness and discipline.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="cta-section text-white text-center py-5">
+            <div class="container">
+                <h2 class="fw-bold">Train With Our Expert Instructors Today</h2>
+                <p class="lead">Join DoBu Martial Arts and achieve your goals.</p>
+                <a href="membership.html" class="btn btn-light btn-lg px-5" style="border-radius:40px; font-weight:600;">
+                    Join Now <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white text-center p-4">
+            <h2 class="fw-bold">DoBu Martial Arts</h2>
+            <p>Follow Us</p>
+            <div>
+                <i class="bi bi-facebook fs-3 me-3"></i>
+                <i class="bi bi-instagram fs-3 me-3"></i>
+                <i class="bi bi-youtube fs-3"></i>
+            </div>
+            <p class="mt-3 text-secondary small">© <span id="year"></span> DoBu Martial Arts</p>
+        </footer>
+
+    </div> <!-- /offset-fixed-nav -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        function showInstructor(name) {
+            alert("You selected " + name + ". 🥋");
+        }
+
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+
+        console.log('✨ Enhanced fixed navbar active – same markup, better feel.');
+    </script>
+
+</body>
+</html>

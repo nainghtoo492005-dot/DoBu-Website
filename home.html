@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DoBu Martial Arts | Home</title>
+
+    <!-- 1. Resource Preconnects -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://hips.hearstapps.com" crossorigin />
+    <link rel="preconnect" href="https://i.pinimg.com" crossorigin />
+
+    <!-- 2. Preload LCP Hero Image -->
+    <link rel="preload" as="image" href="https://hips.hearstapps.com/hmg-prod/images/bobbymaximus2-1549908852.jpg?crop=1.00xw:0.752xh;0,0.103xh&resize=1200:*" fetchpriority="high" />
+
+    <!-- 3. Critical CSS (Render-Blocking Prevention) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    
+    <!-- Non-Critical CSS (Asynchronous Load) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" />
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    </noscript>
+
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #f8f9fc;
+            padding-top: 0;
+            text-rendering: optimizeSpeed;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Fixed Navigation Optimization */
+        .navbar-enhanced {
+            background: rgba(20, 25, 35, 0.85) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+            padding: 0.5rem 0;
+            position: fixed !important;
+            top: 0; left: 0; right: 0;
+            z-index: 9999;
+            width: 100%;
+            transform: translateZ(0);
+        }
+
+        .navbar-enhanced .navbar-brand {
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+            color: #fff;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        .navbar-enhanced .navbar-brand:hover { color: #facc15; }
+
+        .navbar-enhanced .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500;
+            padding: 0.5rem 0.9rem;
+            margin: 0 2px;
+            border-radius: 30px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .navbar-enhanced .navbar-nav .nav-link:hover,
+        .navbar-enhanced .navbar-nav .nav-link:focus {
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .navbar-enhanced .navbar-nav .nav-link.active {
+            color: #facc15 !important;
+            font-weight: 600;
+        }
+
+        .btn-login-enhanced {
+            background: #facc15;
+            border: none;
+            color: #0b0f1a !important;
+            font-weight: 700;
+            padding: 0.45rem 1.5rem;
+            border-radius: 40px;
+            margin-left: 12px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+        .btn-login-enhanced:hover { background: #ffe066; }
+
+        .offset-fixed-nav { margin-top: 76px; }
+
+        /* Hero Carousel aspect-ratio reserve for zero CLS */
+        .hero-slideshow {
+            position: relative;
+            height: 85vh;
+            min-height: 500px;
+            max-height: 700px;
+            overflow: hidden;
+            border-radius: 0 0 40px 40px;
+            contain: layout paint;
+        }
+        .hero-slideshow .carousel-item {
+            height: 85vh;
+            min-height: 500px;
+            max-height: 700px;
+        }
+        .hero-slideshow .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+        }
+        .hero-slideshow .carousel-caption {
+            bottom: 50%;
+            transform: translateY(50%);
+            text-align: center;
+            z-index: 10;
+        }
+        .hero-slideshow .carousel-caption h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .hero-slideshow .carousel-caption h1 span { color: #facc15; }
+
+        .btn-hero {
+            background: #facc15;
+            color: #0b0f1a;
+            font-weight: 700;
+            padding: 0.8rem 2.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 60px; height: 4px;
+            background: #facc15;
+            border-radius: 4px;
+        }
+
+        .card-program {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            contain: layout paint;
+        }
+        .card-program .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            aspect-ratio: 16 / 9;
+        }
+
+        .card-instructor-mini {
+            border: none;
+            border-radius: 20px;
+            text-align: center;
+            padding: 1.5rem;
+            contain: layout paint;
+        }
+        .card-instructor-mini .card-img-top {
+            border-radius: 15px;
+            height: 260px;
+            object-fit: cover;
+            aspect-ratio: 4 / 3;
+            margin-bottom: 1rem;
+        }
+
+        .stat-number { font-size: 3rem; font-weight: 700; color: #dc3545; }
+        .testimonial-card { border: none; border-radius: 20px; padding: 1.5rem; background: white; }
+        .testimonial-card .stars { color: #facc15; }
+        .badge-gold { background: #facc15; color: #0b0f1a; padding: 0.3rem 1.2rem; border-radius: 40px; font-weight: 600; }
+        .bg-dark-custom { background: #0b111e; }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top navbar-enhanced">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="home.html">DoBu Martial Arts</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavEnhanced" aria-controls="navbarNavEnhanced" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavEnhanced">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="home.html"><i class="bi bi-house-door-fill"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-info-circle"></i> About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="classes.html"><i class="bi bi-grid-3x3-gap-fill"></i> Classes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="timetable.html"><i class="bi bi-calendar3"></i> Timetable</a></li>
+                    <li class="nav-item"><a class="nav-link" href="membership.html"><i class="bi bi-person-badge"></i> Membership</a></li>
+                    <li class="nav-item"><a class="nav-link" href="instructor.html"><i class="bi bi-people-fill"></i> Instructors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html"><i class="bi bi-images"></i> Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope-fill"></i> Contact</a></li>
+                    <li class="nav-item"><a class="btn btn-danger ms-2 btn-login-enhanced" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="offset-fixed-nav">
+
+        <!-- HERO SLIDESHOW -->
+        <div id="heroCarousel" class="carousel slide hero-slideshow" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- LCP Image -->
+                <div class="carousel-item active">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/bobbymaximus2-1549908852.jpg?crop=1.00xw:0.752xh;0,0.103xh&resize=1200:*" class="d-block w-100" alt="Martial Arts Training" fetchpriority="high" loading="eager" decoding="sync" width="1200" height="700">
+                    <div class="carousel-caption">
+                        <h1>Train <span>like a warrior</span></h1>
+                        <p>Elite martial arts · Judo, Jiu-Jitsu, Karate &amp; more. Your journey starts here.</p>
+                        <div class="mt-4">
+                            <a href="membership.html" class="btn-hero"><i class="bi bi-rocket-takeoff"></i> Start Your Journey</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/lgpcrz0knsburbdac6b7" class="d-block w-100" alt="Judo Training" loading="lazy" decoding="async" width="1200" height="700">
+                    <div class="carousel-caption">
+                        <h1>Master <span>Judo</span> &amp; Grappling</h1>
+                        <p>Learn throws, submissions and ground control from world-class coaches.</p>
+                        <div class="mt-4">
+                            <a href="classes.html" class="btn-hero"><i class="bi bi-book"></i> Explore Classes</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="martialimage/pp.jpg" class="d-block w-100" alt="Fitness Training" loading="lazy" decoding="async" width="1200" height="700">
+                    <div class="carousel-caption">
+                        <h1>Build <span>Strength</span> &amp; Confidence</h1>
+                        <p>Fitness training, self-defence and a supportive community awaits.</p>
+                        <div class="mt-4">
+                            <a href="membership.html" class="btn-hero"><i class="bi bi-person-plus"></i> Join Today</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Previous">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+
+        <!-- ABOUT -->
+        <section class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold"><span class="section-title">About DoBu Martial Arts</span></h2>
+                <p class="lead" style="max-width: 700px; margin: 1rem auto;">DoBu Martial Arts is a professional martial arts gym offering world-class training in martial arts, fitness, and self-defence. Our mission is to help students build strength, confidence and discipline.</p>
+                <div class="mt-3">
+                    <span class="badge-gold">🏆 Est. 2010</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAMS -->
+        <section class="container py-5">
+            <h2 class="text-center fw-bold mb-5"><span class="section-title">Our Martial Arts Programs</span></h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card card-program shadow-sm h-100">
+                        <img src="https://i.pinimg.com/1200x/52/c0/b7/52c0b75338d32facdb48f76ca63dfd79.jpg" class="card-img-top" alt="Karate" loading="lazy" decoding="async" width="300" height="200">
+                        <div class="card-body text-center">
+                            <h2>Karate</h2>
+                            <p class="text-secondary">Traditional striking martial art for discipline and self-defence.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-program shadow-sm h-100">
+                        <img src="https://i.pinimg.com/1200x/b5/c1/f4/b5c1f41b71349362e0db10289125d867.jpg" class="card-img-top" alt="Judo" loading="lazy" decoding="async" width="300" height="200">
+                        <div class="card-body text-center">
+                            <h2>Judo</h2>
+                            <p class="text-secondary">Improve balance, throws and grappling skills.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-program shadow-sm h-100">
+                        <img src="https://i.pinimg.com/736x/4f/58/74/4f587417449a3f78bed60fbf14ab2ba3.jpg" class="card-img-top" alt="Jiu-Jitsu" loading="lazy" decoding="async" width="300" height="200">
+                        <div class="card-body text-center">
+                            <h2>Jiu-Jitsu</h2>
+                            <p class="text-secondary">Ground fighting and submission techniques.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-program shadow-sm h-100">
+                        <img src="https://i.pinimg.com/1200x/42/d3/8e/42d38e2bba30aeabcebc6c8bba92ec9b.jpg" class="card-img-top" alt="Muay Thai" loading="lazy" decoding="async" width="300" height="200">
+                        <div class="card-body text-center">
+                            <h2>Muay Thai</h2>
+                            <p class="text-secondary">Develop powerful striking skills and fitness.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="bg-light py-5">
+            <div class="container">
+                <h2 class="text-center fw-bold mb-5"><span class="section-title">Our Achievement</span></h2>
+                <div class="row text-center g-4">
+                    <div class="col-md-3"><div class="stat-number">250+</div><p class="fw-semibold">Active Students</p></div>
+                    <div class="col-md-3"><div class="stat-number">12</div><p class="fw-semibold">Professional Coaches</p></div>
+                    <div class="col-md-3"><div class="stat-number">18</div><p class="fw-semibold">Championship Awards</p></div>
+                    <div class="col-md-3"><div class="stat-number">10+</div><p class="fw-semibold">Years of Excellence</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTRUCTORS PREVIEW -->
+        <section class="container py-5">
+            <h2 class="text-center fw-bold mb-5"><span class="section-title">Meet Our Instructors</span></h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card-instructor-mini shadow-sm h-100 bg-white">
+                        <img src="https://i.pinimg.com/736x/af/07/10/af0710a0e6c5a9df0152f91626e44491.jpg" class="card-img-top" alt="Mauricio Gomez" loading="lazy" decoding="async" width="350" height="260">
+                        <h2 class="fw-bold">Mauricio Gomez</h2>
+                        <p class="text-danger fw-semibold">GYM Owner / Head Coach</p>
+                        <p class="text-secondary">4th Dan Judo · 3rd Dan Jiu-Jitsu · 1st Dan Blackbelt Karate · Accredited Muay Thai Coach</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-instructor-mini shadow-sm h-100 bg-white">
+                        <img src="https://i.pinimg.com/1200x/dc/b6/43/dcb64311d55161f6df54fc6093172f25.jpg" class="card-img-top" alt="Sarah Nova" loading="lazy" decoding="async" width="350" height="260">
+                        <h2 class="fw-bold">Sarah Nova</h2>
+                        <p class="text-danger fw-semibold">Assistant Martial Arts Coach</p>
+                        <p class="text-secondary">5th Dan Karate</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-instructor-mini shadow-sm h-100 bg-white">
+                        <img src="https://i.pinimg.com/736x/85/04/23/850423372494bfc2ee281e1acf825241.jpg" class="card-img-top" alt="Guy Victory" loading="lazy" decoding="async" width="350" height="260">
+                        <h2 class="fw-bold">Guy Victory</h2>
+                        <p class="text-danger fw-semibold">Assistant Martial Arts Coach</p>
+                        <p class="text-secondary">2nd Dan Blackbelt Jiu-Jitsu · 1st Dan Blackbelt Judo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="instructor.html" class="btn btn-outline-danger rounded-pill px-4 fw-semibold">View All Instructors</a>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="bg-black text-white text-center p-4">
+            <h2 class="fw-bold">DoBu Martial Arts</h2>
+            <p>Building Strength, Discipline and Confidence.</p>
+            <div>
+                <i class="bi bi-facebook fs-3 me-3"></i>
+                <i class="bi bi-instagram fs-3 me-3"></i>
+                <i class="bi bi-youtube fs-3"></i>
+            </div>
+            <p class="mt-3 text-secondary small">© <span id="year"></span> DoBu Martial Arts</p>
+        </footer>
+
+    </div>
+
+    <!-- 4. Async JavaScript Execution -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" async></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
